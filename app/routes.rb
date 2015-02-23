@@ -12,3 +12,7 @@ end
 get '/vets' do
   erb :'/vets/index'
 end
+
+get '/about' do
+  erb :about
+end
