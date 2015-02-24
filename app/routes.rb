@@ -1,5 +1,6 @@
 require 'sinatra'
 
+set :public_folder => 'public'
 
 get '/home' do
   erb :index

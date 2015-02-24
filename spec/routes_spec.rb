@@ -1,15 +1,3 @@
-require 'rspec'
-require 'rack/test'
-
-require_relative '../routes'
-require_relative 'spec_helper'
-
-set :environment, :test
-
-def app
-  Sinatra::Application
-end
-
 describe 'Check routes' do
   include Rack::Test::Methods
 
