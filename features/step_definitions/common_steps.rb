@@ -13,3 +13,11 @@ end
 Then(/^I should see owners list$/) do
   page.has_content?('Find owners')
 end
+
+When(/^I navigate to Veterinaries page$/) do
+  click_link('Veterinaries')
+end
+
+Then(/^I should see Veterinaries list$/) do
+  page.has_content?('Vers home')
+end
