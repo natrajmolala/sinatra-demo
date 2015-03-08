@@ -10,8 +10,10 @@ When(/^I navigate to Find owners page$/) do
   click_link('Find owners')
 end
 
-Then(/^I should see owners list$/) do
+Then(/^I should see option to find owners$/) do
   page.has_content?('Find owners')
+  find_field('last-name-text').value
+  find_button('Find owner')
 end
 
 When(/^I navigate to Veterinaries page$/) do
