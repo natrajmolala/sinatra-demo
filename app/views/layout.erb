@@ -4,24 +4,27 @@
     Pet Clinic :: Sinatra ruby application!
   </title>
 
-  <link href="<%= stylesheet_path 'main' %>" rel="stylesheet" />
+  <link href="<%= stylesheet_path 'main' %>" rel="stylesheet"/>
 
 </head>
-<body style="margin-left: 50px">
+<body>
 <div class="container">
 
-  <img class="hero-image" src="<%= image_path 'banner.jpeg' %>">
+  <header>
+    <img class="hero-image" src="<%= image_path 'banner.jpeg' %>">
 
-  <ul>
-    <li><a href="/pet-clinic/home">Home</a></li>
-    <li><a href="/pet-clinic/owners/find">Find owners</a></li>
-    <li><a href="/pet-clinic/vets">Veterinaries</a></li>
-    <li><a href="/pet-clinic/about">About</a></li>
-  </ul>
-
-  <div class="fragment">
-    <%= yield %>
-  </div>
+    <div class="nav">
+      <ul>
+        <li><a href="/pet-clinic/home">Home</a></li>
+        <li><a href="/pet-clinic/owners/find">Find owners</a></li>
+        <li><a href="/pet-clinic/vets">Veterinaries</a></li>
+        <li><a href="/pet-clinic/about">About</a></li>
+      </ul>
+    </div>
+    </header>
+      <div class="fragment">
+        <%= yield %>
+      </div>
 
 </div>
 
