@@ -5,7 +5,7 @@ require 'rspec'
 
 Capybara.run_server = false
 Capybara.default_driver = :selenium
-Capybara.default_selector = :css
+Capybara.default_selector = :stylesheets
 
 module Helpers
   def without_resynchronize

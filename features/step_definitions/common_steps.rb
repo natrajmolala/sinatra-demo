@@ -1,5 +1,5 @@
 When(/^I launch Pet clinic site$/) do
-  visit 'http://localhost:4567/home'
+  visit 'http://localhost:5569/pet-clinic/home'
 end
 
 Then(/^I should see the home page$/) do

@@ -1,19 +1,19 @@
-require 'sinatra'
+class SinatraApp < Sinatra::Base
 
-set :public_folder => 'public'
+  get '/home' do
+    erb :index
+  end
 
-get '/home' do
-  erb :index
-end
+  get '/owners/find' do
+    erb :'owners/find'
+  end
 
-get '/owners/find' do
-  erb :'owners/find'
-end
+  get '/vets' do
+    erb :'/vets/index'
+  end
 
-get '/vets' do
-  erb :'/vets/index'
-end
+  get '/about' do
+    erb :about
+  end
 
-get '/about' do
-  erb :about
 end
