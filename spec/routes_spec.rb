@@ -1,5 +1,6 @@
 describe 'Check routes' do
-  include Rack::Test::Methods
+
+  include_context :rack_test
 
   it 'should load home page' do
     get '/home'

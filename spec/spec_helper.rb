@@ -1,15 +1,14 @@
-require 'rspec'
-require 'rack/test'
+ENV['RACK_ENV'] = 'test'
 
-require_relative '../app/routes'
+require 'rack/test'
+require 'rspec'
+
+require File.expand_path(File.dirname(__FILE__) + "/../config.ru")
 
 RSpec.configure do |config|
   config.failure_color = :red
   config.tty = true
   config.color = true
   config.order = 'random'
-end
-
-def app
-  Sinatra::Application
+  config.include Rack::Test::Methods
 end

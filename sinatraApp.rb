@@ -3,7 +3,6 @@ require 'sprockets'
 require 'sprockets-helpers'
 require 'routes'
 
-puts 'sinatra app rb file'
 class SinatraApp < Sinatra::Base
   puts "Root: #{File.dirname(__FILE__)}"
   set :root, File.dirname(__FILE__)

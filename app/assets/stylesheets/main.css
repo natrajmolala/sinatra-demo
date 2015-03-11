@@ -3,12 +3,16 @@ body {
     margin: 10px 50px 0 50px;
     padding: 0;
     background: #ffffff;
-    width: 640px;
+    text-align: -webkit-center;
 }
 
 .hero-image {
-    width: 640px;
-    height: 205px;
+    width: 960px;
+    height: 200px;
+}
+
+.container {
+    max-width: 960px;
 }
 
 .nav ul {
