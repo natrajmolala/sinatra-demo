@@ -1,7 +1,5 @@
 describe 'Check routes' do
 
-  include_context :rack_test
-
   it 'should load home page' do
     get '/home'
     expect(last_response.status).to eq(200)

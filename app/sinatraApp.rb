@@ -1,12 +1,13 @@
 require 'sinatra/base'
 require 'sprockets'
 require 'sprockets-helpers'
-require 'routes'
+
+require_relative 'routes'
 
 class SinatraApp < Sinatra::Base
   puts "Root: #{File.dirname(__FILE__)}"
   set :root, File.dirname(__FILE__)
-  set :views, "#{root}/app/views"
+  set :views, "#{root}/views"
   set :public_folder => 'public'
 
   set :assets, Sprockets::Environment.new

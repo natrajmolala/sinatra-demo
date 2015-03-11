@@ -1,7 +1,7 @@
 __dir__ = File.dirname(__FILE__)
 $LOAD_PATH.unshift("#{__dir__}/app")
 
-require './sinatraApp'
+require 'sinatraApp'
 
 map '/assets' do
   puts 'calling for assets'
