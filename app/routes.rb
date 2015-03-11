@@ -4,8 +4,8 @@ class SinatraApp < Sinatra::Base
     erb :index
   end
 
-  get '/owners/find' do
-    erb :'owners/find'
+  get '/owners' do
+    erb :'owners/index'
   end
 
   get '/vets' do

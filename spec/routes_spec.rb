@@ -7,7 +7,7 @@ describe 'Check routes' do
   end
 
   it 'should find owners page' do
-    get '/owners/find'
+    get '/owners'
     expect(last_response.status).to eq(200)
     expect(last_response.body).to include('Find owners')
   end
