@@ -68,3 +68,9 @@ body {
     text-align: left;
     font-size: 1em;
 }
+
+.form-container {
+    float: left;
+    width: 50%;
+    text-align: left;
+}

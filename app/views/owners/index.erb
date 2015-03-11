@@ -1,9 +1,9 @@
 <h3 class="intro-text">Find owners</h3>
 
-<div>
-  <form id="find-owner-form" action="/find-owner" method="get">
-    <label id="last-name-label">Last name</label>
-    <input type="text" id="last-name-text" maxlength="20"/>
-    <input type="submit" id="find-owner-button" value="Find owner"/>
+<div class="form-container">
+  <form id="find_owner_form" action="/pet-clinic/owners/find" method="post">
+    <label id="last_name_label">Last name</label>
+    <input type="text" name="name" id="name" maxlength="20"/>
+    <input type="submit" id="find_owner_button" value="Find owner"/>
   </form>
 </div>

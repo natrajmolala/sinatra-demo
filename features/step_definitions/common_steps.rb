@@ -12,7 +12,7 @@ end
 
 Then(/^I should see option to find owners$/) do
   page.has_content?('Find owners')
-  find_field('last-name-text').value
+  find_field('name').value
   find_button('Find owner')
 end
 
