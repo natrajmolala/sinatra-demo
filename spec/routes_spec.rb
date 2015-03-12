@@ -21,7 +21,7 @@ describe 'Check routes' do
   end
 
 
-  context 'owners feature' do
+  context 'Vets feature' do
     it 'should load vets page' do
       get '/vets'
       expect(last_response.status).to eq(200)
