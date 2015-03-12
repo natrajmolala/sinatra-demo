@@ -21,5 +21,5 @@ When(/^I navigate to Veterinaries page$/) do
 end
 
 Then(/^I should see Veterinaries list$/) do
-  page.has_content?('Vers home')
+  page.has_content?('Veterinaries')
 end

@@ -1,3 +1,5 @@
+require_relative 'veterinarian/vet'
+
 class SinatraApp < Sinatra::Base
 
   get '/home' do
@@ -9,12 +11,12 @@ class SinatraApp < Sinatra::Base
   end
 
   post '/owners/find' do
-    puts params[:name]
     erb :'owners/owners', :locals => {:search_term => params[:name]}
   end
 
   get '/vets' do
-    erb :'/vets/index'
+    vets = [Vet.new('John Rambo', 'Radiology'), Vet.new('Henry Lamb', 'Dentistry')]
+    erb :'/vets/index', :locals => {:vets => vets}
   end
 
   get '/about' do
