@@ -12,6 +12,7 @@ group :development do
   gem 'rspec'
   gem 'rack'
   gem 'rack-test'
+  gem 'rake'
   gem 'cucumber'
   gem 'capybara'
   gem 'selenium-webdriver'

@@ -28,8 +28,11 @@ class SinatraApp < Sinatra::Base
   end
 
   $mongo_client = MongoClient.new(Conf.mongodb[:host], Conf.mongodb[:port])
-  p $mongo_client.database_names
   $mongo_db = $mongo_client[Conf.mongodb[:db]]
+
+  if Conf.env == :test
+    #TODO clear all db collections
+  end
 
 
   Sprockets::Helpers.configure do |config|

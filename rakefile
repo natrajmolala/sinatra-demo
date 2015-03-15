@@ -1,0 +1,38 @@
+require 'cucumber/rake/task'
+require 'rspec/core/rake_task'
+
+@port = ENV['APP_PORT'] || 5569
+
+task :default => :spec
+
+desc 'run specs'
+RSpec::Core::RakeTask.new(:spec)
+
+desc 'start application'
+task :start_app => :stop_app do
+  puts 'Starting application'
+  run_command "thin start -p #{@port} -e development -d"
+end
+
+desc 'stop application'
+task :stop_app do
+  puts 'Stopping application'
+  kill_application @port
+end
+
+def kill_application(port)
+  puts "****** stopping anything listening on port #{port} if its running ******"
+  server_pid=`lsof -i TCP:#{port} | grep LISTEN | awk '{ print $2 }'`
+  if server_pid != ""
+    `kill -9 #{server_pid}`
+  end
+end
+
+def run_command command
+  puts "[Running] #{command}"
+  system command
+  if (0 != $?)
+    puts "failed: #{command}"
+    exit 1
+  end
+end

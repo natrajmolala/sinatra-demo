@@ -18,7 +18,6 @@ describe 'Vet class' do
   end
 
   it 'should be converted to object from json string' do
-
     vet = Vet.from_json("{\"firstname\":\"John\",\"lastname\":\"Rambo\",\"speciality\":\"Radiology\"}")
     expect(vet.firstname).to eq 'John'
     expect(vet.lastname).to eq 'Rambo'
