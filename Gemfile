@@ -5,10 +5,11 @@ gem 'sinatra'
 gem 'sprockets'
 gem 'sprockets-helpers'
 
-gem 'rspec'
-gem 'rack'
-gem 'rack-test'
-gem 'cucumber'
-gem 'capybara'
-gem 'selenium-webdriver'
-
+group :development do
+  gem 'rspec'
+  gem 'rack'
+  gem 'rack-test'
+  gem 'cucumber'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end
