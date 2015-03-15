@@ -33,11 +33,11 @@ class SinatraApp < Sinatra::Base
 
   get '/admin/:page' do
 
-    result = []
+    result = {}
     if params[:page] == 'vets'
       vets_array = $mongo_db['veterinarian'].find().to_a
       vets_array.each do |vet_db|
-        result << Vet.new(vet_db['firstname'], vet_db['lastname'], vet_db['speciality'])
+        result[vet_db['_id']] = Vet.new(vet_db['firstname'], vet_db['lastname'], vet_db['speciality'])
       end
     end
 
@@ -58,5 +58,14 @@ class SinatraApp < Sinatra::Base
     redirect to("admin/#{params[:page]}")
   end
 
+  get '/admin/:page/remove/:db_id' do
+
+    if params[:page] == 'vets'
+      vet_to_remove = $mongo_db['veterinarian'].find_one(:_id => BSON::ObjectId(params[:db_id]))
+      $mongo_db['veterinarian'].remove(vet_to_remove)
+    end
+
+    redirect to("admin/#{params[:page]}")
+  end
 
 end

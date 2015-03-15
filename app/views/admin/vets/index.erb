@@ -9,11 +9,13 @@
       <div class="table-row">
         <div class="table-head"><strong>Name</strong></div>
         <div class="table-head"><strong>Speciality</strong></div>
+        <div class="table-head"><strong></strong></div>
       </div>
-      <% result.each do |vet| %>
+      <% result.each do |id, vet| %>
           <div class="table-row">
             <div class="table-cell"><%= vet.firstname %>&nbsp;<%= vet.lastname %></div>
             <div class="table-cell"><%= vet.speciality %></div>
+            <div class="table-cell"><a href="/pet-clinic/admin/vets/remove/<%= id %>">Delete</a></div>
           </div>
       <% end %>
     </div>
