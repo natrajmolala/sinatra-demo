@@ -1,0 +1,20 @@
+<p class="intro-text">Veterinaries</p>
+
+<div class="admin-actions">
+  <p><a href="/pet-clinic/admin/vets/new"> Create </a></p>
+</div>
+
+<% unless result.nil? %>
+    <div class="table">
+      <div class="table-row">
+        <div class="table-head"><strong>Name</strong></div>
+        <div class="table-head"><strong>Speciality</strong></div>
+      </div>
+      <% result.each do |vet| %>
+          <div class="table-row">
+            <div class="table-cell"><%= vet.firstname %>&nbsp;<%= vet.lastname %></div>
+            <div class="table-cell"><%= vet.speciality %></div>
+          </div>
+      <% end %>
+    </div>
+<% end %>

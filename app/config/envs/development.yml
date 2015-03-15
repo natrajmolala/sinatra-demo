@@ -1,0 +1,7 @@
+:logging_level: :debug
+
+:mongodb:
+  :host: localhost
+  :port: 27017
+  :db: sinatrademo
+

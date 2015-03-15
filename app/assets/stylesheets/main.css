@@ -74,3 +74,8 @@ body {
     width: 50%;
     text-align: left;
 }
+
+.admin-actions {
+    float: left;
+    text-align: left;
+}

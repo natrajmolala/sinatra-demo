@@ -43,4 +43,37 @@ describe 'Check routes' do
     expect(last_response.body).to include('About this web app')
   end
 
+  context 'Admin feature' do
+    it 'should load admin page' do
+      get '/admin'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to include('Welcome admin!')
+    end
+
+    it 'navigate to owners page' do
+      get '/admin/owners'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to include('Owners')
+    end
+
+    it 'navigate to add new owner page' do
+      get '/admin/owners/new'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to include('Add Owner')
+    end
+
+    it 'navigate to manage vets page' do
+      get '/admin/vets'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to include('Veterinaries')
+    end
+
+    it 'navigate to add new Vet page' do
+      get '/admin/vets/new'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to include('Add Veterinarian')
+    end
+  end
+
+
 end

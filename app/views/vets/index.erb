@@ -7,7 +7,7 @@
   </div>
   <% vets.each do | vet | %>
       <div class="table-row">
-        <div class="table-cell"><%= vet.name %></div>
+        <div class="table-cell"><%= vet.firstname %>&nbsp;<%= vet.lastname %></div>
         <div class="table-cell"><%= vet.speciality %></div>
       </div>
   <% end %>
