@@ -2,9 +2,6 @@ require_relative '../../veterinarian/vet'
 require_relative '../../../app/veterinarian/vet_service'
 
 class SinatraApp < Sinatra::Base
-  get '/admin' do
-    erb :'admin/index'
-  end
 
   get '/admin/:page' do
 

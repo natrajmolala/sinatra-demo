@@ -1,13 +1,5 @@
 describe 'Admin routes' do
 
-  context 'Admin landing page' do
-    it 'should load admin page' do
-      get '/admin'
-      expect(last_response.status).to eq(200)
-      expect(last_response.body).to include('Welcome admin!')
-    end
-  end
-
   context 'Manage owners' do
     it 'navigate to owners page' do
       get '/admin/owners'
@@ -42,6 +34,5 @@ describe 'Admin routes' do
       expect(last_response.body).to include('Add Veterinarian')
     end
   end
-
 
 end

@@ -20,6 +20,10 @@ class SinatraApp < Sinatra::Base
   assets.append_path 'app/assets/javascripts'
   assets.append_path 'app/assets/images'
 
+  assets.append_path 'app/assets/bootstrap-3.3.4/css'
+  assets.append_path 'app/assets/bootstrap-3.3.4/js'
+  assets.append_path 'app/assets/bootstrap-3.3.4/fonts'
+
   configure do
 
     env = ENV['RACK_ENV'] || 'development'

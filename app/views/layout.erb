@@ -4,31 +4,56 @@
     Pet Clinic :: Sinatra ruby application!
   </title>
 
-  <link href="<%= stylesheet_path 'main' %>" rel="stylesheet"/>
-  <link href="<%= stylesheet_path 'table' %>" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="<%= stylesheet_path 'bootstrap' %>" rel="stylesheet"/>
+  <link href="<%= stylesheet_path 'bootstrap-theme' %>" rel="stylesheet"/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript" src="<%= javascript_path 'bootstrap' %>"></script>
 
 </head>
 <body>
 <div class="container">
-
-  <header>
-    <img class="hero-image" src="<%= image_path 'hero.jpeg' %>">
-
-    <div class="nav">
-      <ul>
-        <li><a href="/pet-clinic/home">Home</a></li>
-        <li><a href="/pet-clinic/owners">Find owners</a></li>
-        <li><a href="/pet-clinic/vets">Veterinaries</a></li>
-        <li><a href="/pet-clinic/admin">Admin</a></li>
-        <li><a href="/pet-clinic/about">About</a></li>
-      </ul>
+  <div class="row">
+    <div class="col-md-12">
+      <img class="img-responsive" width="720" src="<%= image_path 'hero.jpeg' %>">
     </div>
-    </header>
-      <div class="fragment">
-        <%= yield %>
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-tabs">
+          <li><a href="/pet-clinic/home">Home</a></li>
+          <li><a href="/pet-clinic/owners">Find owners</a></li>
+          <li><a href="/pet-clinic/vets">Veterinaries</a></li>
+          <li><a href="/pet-clinic/about">About</a></li>
+
+          <li role="presentation" class="dropdown">
+            <a href="/pet-clinic/admin" class="dropdown-toggle" role="button" data-toggle="dropdown">
+              Admin
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/pet-clinic/admin/owners">Owners</a></li>
+              <li><a href="/pet-clinic/admin/vets">Vets</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= yield %>
+    </div>
+  </div>
 
 </div>
 
 </body>
+
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+</script>
+
+
 </html>
