@@ -1,4 +1,6 @@
 class Vet
+  COLLECTION = 'veterinarian'
+
   attr_accessor :firstname, :lastname, :speciality
 
   def initialize(firstname, lastname, speciality)

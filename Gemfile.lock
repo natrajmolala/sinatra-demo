@@ -92,6 +92,7 @@ DEPENDENCIES
   rack-test
   rake
   rspec
+  rspec-mocks
   selenium-webdriver
   sinatra
   sprockets

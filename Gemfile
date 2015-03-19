@@ -10,6 +10,7 @@ gem 'bson_ext'
 
 group :development do
   gem 'rspec'
+  gem 'rspec-mocks'
   gem 'rack'
   gem 'rack-test'
   gem 'rake'

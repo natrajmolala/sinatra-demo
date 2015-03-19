@@ -1,4 +1,5 @@
 require_relative '../../veterinarian/vet'
+require_relative '../../../app/veterinarian/vet_service'
 
 class SinatraApp < Sinatra::Base
 
@@ -15,12 +16,7 @@ class SinatraApp < Sinatra::Base
   end
 
   get '/vets' do
-    vets = []
-    vets_array = $mongo_db['veterinarian'].find().to_a
-    vets_array.each do |vet_db|
-      vets << Vet.new(vet_db['firstname'], vet_db['lastname'], vet_db['speciality'])
-    end
-    erb :'/vets/index', :locals => {:vets => vets}
+    erb :'/vets/index', :locals => {:vets => PetClinic::VetService.all_vets}
   end
 
   get '/about' do

@@ -1,4 +1,5 @@
 require_relative '../../veterinarian/vet'
+require_relative '../../../app/veterinarian/vet_service'
 
 class SinatraApp < Sinatra::Base
   get '/admin' do
@@ -9,10 +10,7 @@ class SinatraApp < Sinatra::Base
 
     result = {}
     if params[:page] == 'vets'
-      vets_array = $mongo_db['veterinarian'].find().to_a
-      vets_array.each do |vet_db|
-        result[vet_db['_id']] = Vet.new(vet_db['firstname'], vet_db['lastname'], vet_db['speciality'])
-      end
+        result = PetClinic::VetService.all_vets
     end
 
     erb :"admin/#{params[:page]}/index", :locals => {:result => result}
@@ -26,7 +24,7 @@ class SinatraApp < Sinatra::Base
 
     if params[:page] == 'vets'
       vet = Vet.new(params[:firstname], params[:lastname], params[:speciality])
-      $mongo_db['veterinarian'].insert(vet.to_json)
+      PetClinic::VetService.add_vet vet
     end
 
     redirect to("admin/#{params[:page]}")
@@ -35,8 +33,7 @@ class SinatraApp < Sinatra::Base
   get '/admin/:page/remove/:db_id' do
 
     if params[:page] == 'vets'
-      vet_to_remove = $mongo_db['veterinarian'].find_one(:_id => BSON::ObjectId(params[:db_id]))
-      $mongo_db['veterinarian'].remove(vet_to_remove)
+      PetClinic::VetService.remove_vet (params[:db_id])
     end
 
     redirect to("admin/#{params[:page]}")
