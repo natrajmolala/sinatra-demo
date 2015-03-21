@@ -8,6 +8,11 @@ task :default => :spec
 desc 'run specs'
 RSpec::Core::RakeTask.new(:spec)
 
+desc 'run cucumber'
+task :cucumber => :start_app do
+  run_command 'bundle exec cucumber'
+end
+
 desc 'start application'
 task :start_app => :stop_app do
   puts 'Starting application'
