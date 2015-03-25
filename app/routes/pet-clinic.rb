@@ -1,4 +1,5 @@
 require_relative '../../app/pet/pet'
+require_relative '../../app/owner/contact_details'
 require_relative '../../app/owner/owner'
 require_relative '../../app/veterinarian/vet'
 require_relative '../../app/veterinarian/vet_service'

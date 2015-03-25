@@ -1,10 +1,11 @@
 class Owner
 
-  attr_accessor :firstname, :lastname, :pets
+  attr_accessor :firstname, :lastname, :contact_details, :pets
 
-  def initialize(firstname, lastname, pets)
+  def initialize(firstname, lastname, contact_details, pets)
     @firstname = firstname
     @lastname = lastname
+    @contact_details = contact_details
     @pets = pets
   end
 
@@ -12,21 +13,24 @@ class Owner
     {
         :firstname => @firstname,
         :lastname => @lastname,
+        :contact_details => @contact_details.to_json,
         :pets => pets_to_json
     }.to_json
   end
 
   def self.from_json(string)
     data = JSON.load string
-    self.new(data['firstname'], data['lastname'], self.pets_from_json(data['pets']))
+    self.new(data['firstname'], data['lastname'], ContactDetails.from_json(data['contact_details']), self.pets_from_json(data['pets']))
   end
 
   private
 
   def pets_to_json
     pets_json = []
-    @pets.each do |pet|
-      pets_json << pet.to_json
+    unless @pets.nil?
+      @pets.each do |pet|
+        pets_json << pet.to_json
+      end
     end
     pets_json
   end
@@ -38,6 +42,5 @@ class Owner
     end
     pets_json
   end
-
 
 end
