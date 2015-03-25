@@ -9,16 +9,12 @@ class Vet
     @speciality = speciality
   end
 
-  def to_json_string
-    JSON.dump ({
-                  :firstname => @firstname,
-                  :lastname => @lastname,
-                  :speciality => @speciality
-              })
-  end
-
   def to_json
-    JSON.parse(to_json_string)
+    {
+        :firstname => @firstname,
+        :lastname => @lastname,
+        :speciality => @speciality
+    }.to_json
   end
 
   def self.from_json(string)

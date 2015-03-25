@@ -1,6 +1,6 @@
 describe 'Vet class' do
 
-  it 'takes name and speciality and returns vet object' do
+  it 'initialise with name and speciality' do
     vet = Vet.new('John', 'Rambo', 'Radiology')
     expect(vet).to be_an_instance_of Vet
   end
@@ -14,7 +14,7 @@ describe 'Vet class' do
 
   it 'should be converted to json' do
     vet = Vet.new('John', 'Rambo', 'Radiology')
-    expect(vet.to_json_string).to eq "{\"firstname\":\"John\",\"lastname\":\"Rambo\",\"speciality\":\"Radiology\"}"
+    expect(vet.to_json).to eq "{\"firstname\":\"John\",\"lastname\":\"Rambo\",\"speciality\":\"Radiology\"}"
   end
 
   it 'should be converted to object from json string' do

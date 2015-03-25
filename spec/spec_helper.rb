@@ -3,7 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require 'rack/test'
 require 'rspec'
 
-require File.expand_path(File.dirname(__FILE__) + "/../app/sinatraApp")
+require File.expand_path(File.dirname(__FILE__) + '/../app/sinatraApp')
 
 RSpec.configure do |config|
   config.failure_color = :red

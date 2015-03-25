@@ -1,9 +1,9 @@
 require 'sinatra/base'
 require 'sprockets'
 require 'sprockets-helpers'
-require_relative 'config/conf'
 require 'mongo'
 
+require_relative 'config/conf'
 require_relative 'routes'
 
 class SinatraApp < Sinatra::Base
