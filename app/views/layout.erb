@@ -22,12 +22,12 @@
     <div class="row">
       <div class="col-md-12">
         <ul class="nav nav-tabs">
-          <li><a href="/pet-clinic/home">Home</a></li>
-          <li><a href="/pet-clinic/owners">Find owners</a></li>
-          <li><a href="/pet-clinic/vets">Veterinaries</a></li>
-          <li><a href="/pet-clinic/about">About</a></li>
+          <li class=<%= @active_menu == 'home' ? 'active' : ''%>><a href="/pet-clinic/home">Home</a></li>
+          <li class=<%= @active_menu == 'owners' ? 'active' : ''%>><a href="/pet-clinic/owners">Find owners</a></li>
+          <li class=<%= @active_menu == 'vets' ? 'active' : ''%>><a href="/pet-clinic/vets">Veterinaries</a></li>
+          <li class=<%= @active_menu == 'about' ? 'active' : ''%>><a href="/pet-clinic/about">About</a></li>
 
-          <li role="presentation" class="dropdown">
+          <li class=<%= @active_menu == 'admin' ? 'active' : ''%> role="presentation" class="dropdown">
             <a href="/pet-clinic/admin" class="dropdown-toggle" role="button" data-toggle="dropdown">
               Admin
               <span class="caret"></span>

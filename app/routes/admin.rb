@@ -1,13 +1,17 @@
-require_relative '../../veterinarian/vet'
-require_relative '../../../app/veterinarian/vet_service'
+require_relative '../veterinarian/vet'
+require_relative '../../app/veterinarian/vet_service'
 
 class SinatraApp < Sinatra::Base
+
+  before '*' do
+    @active_menu = 'admin'
+  end
 
   get '/admin/:page' do
 
     result = {}
     if params[:page] == 'vets'
-        result = PetClinic::VetService.all_vets
+      result = PetClinic::VetService.all_vets
     end
 
     erb :"admin/#{params[:page]}/index", :locals => {:result => result}

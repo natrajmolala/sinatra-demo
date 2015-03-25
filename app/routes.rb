@@ -1,2 +1,2 @@
-require_relative '../app/views/routes/pet-clinic'
-require_relative '../app/views/routes/admin'
+require_relative '../app/routes/pet-clinic'
+require_relative '../app/routes/admin'

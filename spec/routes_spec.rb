@@ -13,7 +13,7 @@ describe 'Pet clinic routes' do
       expect(last_response.body).to include('Find owners')
     end
 
-    it 'Find owners should pass search term' do
+    it 'Find owners action should pass search term' do
       post '/owners/find', name: 'molala'
       expect(last_response.status).to eq(200)
       expect(last_response.body).to include('Search results for molala')
@@ -48,12 +48,13 @@ describe 'Pet clinic routes' do
     end
   end
 
-  it 'should load aboutus page' do
-    get '/about'
-    expect(last_response.status).to eq(200)
-    expect(last_response.body).to include('About this web app')
+  context 'About us feature' do
+    it 'should load about us page' do
+      get '/about'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to include('About this web app')
+    end
   end
-
 
 
 end
