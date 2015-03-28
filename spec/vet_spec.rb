@@ -14,7 +14,10 @@ describe 'Vet class' do
 
   it 'should be converted to json' do
     vet = Vet.new('John', 'Rambo', 'Radiology')
-    expect(vet.to_json).to eq "{\"firstname\":\"John\",\"lastname\":\"Rambo\",\"speciality\":\"Radiology\"}"
+    expect(vet.to_json).not_to be_nil
+    expect(vet.to_json[:firstname]).to eq 'John'
+    expect(vet.to_json[:lastname]).to eq 'Rambo'
+    expect(vet.to_json[:speciality]).to eq 'Radiology'
   end
 
   it 'should be converted to object from json string' do

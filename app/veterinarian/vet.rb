@@ -14,7 +14,7 @@ class Vet
         :firstname => @firstname,
         :lastname => @lastname,
         :speciality => @speciality
-    }.to_json
+    }
   end
 
   def self.from_json(string)
