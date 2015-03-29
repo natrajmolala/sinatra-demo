@@ -1,12 +1,34 @@
-<p class="intro-text">Add Veterinarian</p>
-<div class="form-container">
-  <form id="new_vet_form" action="/pet-clinic/admin/vets/create" method="post">
-    <label id="first_name_label">First name</label>
-    <input type="text" name="firstname" id="firstname" maxlength="20"/>
-    <label id="last_name_label">Last name</label>
-    <input type="text" name="lastname" id="lastname" maxlength="20"/>
-    <label id="speciality_label">Speciality</label>
-    <input type="text" name="speciality" id="speciality" maxlength="20"/>
-    <input type="submit" id="add_owner_button" value="Create"/>
-  </form>
-</div>
+<h3>Add Veterinarian</h3>
+<p>
+<form id="new_vet_form" class="form-horizontal" action="/pet-clinic/admin/vets/create" method="post">
+  <div class="form-group">
+    <label id="first_name_label" class="col-sm-2 control-label">First name</label>
+
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="firstname" id="firstname" maxlength="20"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label id="last_name_label" class="col-sm-2 control-label">Last name</label>
+
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="lastname" id="lastname" maxlength="20"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label id="speciality_label" class="col-sm-2 control-label">Speciality</label>
+
+    <div class="col-sm-4">
+      <input type="text" class="form-control" name="speciality" id="speciality" maxlength="20"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" class="btn btn-default" id="add_owner_button" value="Create"/>
+
+    </div>
+  </div>
+</form>
