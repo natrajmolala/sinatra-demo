@@ -7,10 +7,10 @@ class Owner
 
   def to_json
     {
-        :first_name => @first_name,
-        :last_name => @last_name,
-        :contact_details => @contact_details.to_json,
-        :pets => pets_to_json
+        first_name: @first_name,
+        last_name: @last_name,
+        contact_details: @contact_details.to_json,
+        pets: pets_to_json
     }.to_json
   end
 
@@ -18,10 +18,10 @@ class Owner
     data = JSON.load string
     cd = ContactDetails.new
     cd.from_json(data['@contact_details'])
-    self.new(:first_name => data['@first_name'],
-             :last_name => data['@last_name'],
-             :contact_details => cd,
-             :pets => self.pets_from_json(data['@pets']))
+    self.new(first_name: data['@first_name'],
+             last_name: data['@last_name'],
+             contact_details: cd,
+             pets: self.pets_from_json(data['@pets']))
   end
 
   private

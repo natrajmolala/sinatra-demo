@@ -14,7 +14,7 @@ class SinatraApp < Sinatra::Base
       result = PetClinic::VetService.all_vets
     end
 
-    erb :"admin/#{params[:page]}/index", :locals => {:result => result}
+    erb :"admin/#{params[:page]}/index", :locals => {result: result}
   end
 
   get '/admin/:page/new' do
@@ -24,9 +24,9 @@ class SinatraApp < Sinatra::Base
   post '/admin/:page/create' do
 
     if params[:page] == 'vets'
-      vet = Vet.new(:first_name => params[:first_name],
-                    :last_name => params[:last_name],
-                    :speciality => params[:speciality])
+      vet = Vet.new(first_name: params[:first_name],
+                    last_name: params[:last_name],
+                    speciality: params[:speciality])
       PetClinic::VetService.add_vet vet
     end
 

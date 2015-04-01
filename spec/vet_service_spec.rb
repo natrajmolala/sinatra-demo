@@ -5,7 +5,9 @@ describe 'Vet service' do
   end
 
   it 'should add and fetch vets from db' do
-    vet = Vet.new(:first_name => 'Linda', :last_name => 'Goodman', :speciality => 'Radiology')
+    vet = Vet.new(first_name: 'Linda',
+                  last_name: 'Goodman',
+                  speciality: 'Radiology')
     PetClinic::VetService.add_vet vet
 
     vets = PetClinic::VetService.all_vets
@@ -15,10 +17,14 @@ describe 'Vet service' do
   end
 
   it 'should remove vet from db' do
-    vet = Vet.new(:first_name => 'Ben', :last_name => 'Crow', :speciality => 'Radiology')
+    vet = Vet.new(first_name: 'Ben',
+                  last_name: 'Crow',
+                  speciality: 'Radiology')
     PetClinic::VetService.add_vet vet
 
-    vet = Vet.new(:first_name => 'Linda', :last_name => 'Goodman', :speciality => 'Radiology')
+    vet = Vet.new(first_name: 'Linda',
+                  last_name: 'Goodman',
+                  speciality: 'Radiology')
     linda_id = PetClinic::VetService.add_vet vet
 
     vets = PetClinic::VetService.all_vets

@@ -17,8 +17,12 @@ describe 'Admin routes' do
   context 'Manage vets' do
     before(:each) do
       @vets = {}
-      @vets[1] = Vet.new(:first_name => 'John', :last_name => 'Rambo', :speciality => 'Radiology')
-      @vets[2] = Vet.new(:first_name => 'Adam', :last_name => 'Smith', :speciality => 'X-Ray')
+      @vets[1] = Vet.new(first_name: 'John',
+                         last_name: 'Rambo',
+                         speciality: 'Radiology')
+      @vets[2] = Vet.new(first_name: 'Adam',
+                         last_name: 'Smith',
+                         speciality: 'X-Ray')
     end
 
     it 'navigate to manage vets page' do
