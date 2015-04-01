@@ -24,7 +24,7 @@ class SinatraApp < Sinatra::Base
   post '/admin/:page/create' do
 
     if params[:page] == 'vets'
-      vet = Vet.new(params[:firstname], params[:lastname], params[:speciality])
+      vet = Vet.new(params[:first_name], params[:last_name], params[:speciality])
       PetClinic::VetService.add_vet vet
     end
 

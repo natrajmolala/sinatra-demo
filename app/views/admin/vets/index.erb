@@ -20,7 +20,7 @@
             <tbody>
             <% result.each do |id, vet| %>
                 <tr>
-                  <td class="table-cell"><%= vet.firstname %>&nbsp;<%= vet.lastname %></td>
+                  <td class="table-cell"><%= vet.first_name %>&nbsp;<%= vet.last_name %></td>
                   <td class="table-cell"><%= vet.speciality %></td>
                   <td class="table-cell"><a href="/pet-clinic/admin/vets/remove/<%= id %>">Delete</a></td>
                 </tr>

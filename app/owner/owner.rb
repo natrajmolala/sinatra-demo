@@ -1,18 +1,14 @@
+require_relative '../common/base_init'
+
 class Owner
+  include BaseInit
 
-  attr_accessor :firstname, :lastname, :contact_details, :pets
-
-  def initialize(firstname, lastname, contact_details, pets)
-    @firstname = firstname
-    @lastname = lastname
-    @contact_details = contact_details
-    @pets = pets
-  end
+  attr_accessor :first_name, :last_name, :contact_details, :pets
 
   def to_json
     {
-        :firstname => @firstname,
-        :lastname => @lastname,
+        :first_name => @first_name,
+        :last_name => @last_name,
         :contact_details => @contact_details.to_json,
         :pets => pets_to_json
     }.to_json
@@ -20,7 +16,12 @@ class Owner
 
   def self.from_json(string)
     data = JSON.load string
-    self.new(data['firstname'], data['lastname'], ContactDetails.from_json(data['contact_details']), self.pets_from_json(data['pets']))
+    cd = ContactDetails.new
+    cd.from_json(data['@contact_details'])
+    self.new(:first_name => data['@first_name'],
+             :last_name => data['@last_name'],
+             :contact_details => cd,
+             :pets => self.pets_from_json(data['@pets']))
   end
 
   private
@@ -38,7 +39,9 @@ class Owner
   def self.pets_from_json(pets_array)
     pets_json = []
     pets_array.each do |pet_json_str|
-      pets_json << Pet.from_json(pet_json_str)
+      pet = Pet.new
+      pet.from_json(pet_json_str)
+      pets_json << pet
     end
     pets_json
   end

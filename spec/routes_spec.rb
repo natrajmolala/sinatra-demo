@@ -25,8 +25,8 @@ describe 'Pet clinic routes' do
 
     before(:each) do
       @vets = {}
-      @vets[1] = Vet.new('John', 'Rambo', 'Radiology')
-      @vets[2] = Vet.new('Adam', 'Smith', 'X-Ray')
+      @vets[1] = Vet.new(:first_name => 'John', :last_name => 'Rambo', :speciality => 'Radiology')
+      @vets[2] = Vet.new(:first_name => 'Adam', :last_name => 'Smith', :speciality => 'X-Ray')
     end
 
     it 'should load vets page' do
