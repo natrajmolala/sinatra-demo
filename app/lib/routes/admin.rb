@@ -1,5 +1,5 @@
 require_relative '../veterinarian/vet'
-require_relative '../../app/veterinarian/vet_service'
+require_relative '../veterinarian/vet_service'
 
 class SinatraApp < Sinatra::Base
 
@@ -14,7 +14,7 @@ class SinatraApp < Sinatra::Base
       result = PetClinic::VetService.all_vets
     end
 
-    erb :"admin/#{params[:page]}/index", :locals => {result: result}
+    erb :"admin/#{params[:page]}/index", locals: {result: result}
   end
 
   get '/admin/:page/new' do
